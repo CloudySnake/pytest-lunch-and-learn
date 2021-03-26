@@ -17,7 +17,4 @@ def test_mocked_api_call(mocker):
     mock_api = mocker.patch("src.simple_adder.adder.totally_cool_api_call")
     mock_api.return_value = {"url": "http://pytest/rules/ok", "content": 100}
 
-    mock_requests = mocker.patch("src.simple_adder.adder.requests")
-    mock_requests.return_value = "BOO"
-
     assert add_up_with_api("any_url", 100) == 200
